@@ -1,0 +1,36 @@
+{
+	"items": [
+		{
+			"id": 1,
+			"name": "Dagger",
+			"category": "weapon",
+			"bookValue": 150,
+			"claimed": false,
+			"claimedBy": ""
+		},
+		{
+			"id": 2,
+			"name": "Tower Shield",
+			"category": "shield",
+			"bookValue": 1500,
+			"claimed": false,
+			"claimedBy": ""
+		},
+		{
+			"id": 3,
+			"name": "Broadsword",
+			"category": "weapon",
+			"bookValue": 1000,
+			"claimed": false,
+			"claimedBy": ""
+		},
+		{
+			"id": 4,
+			"name": "Potion of Fly",
+			"category": "potion",
+			"bookValue": 750,
+			"claimed": false,
+			"claimedBy": ""
+		}
+	]
+}
