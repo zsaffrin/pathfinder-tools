@@ -31,6 +31,14 @@
 			"bookValue": 750,
 			"claimed": false,
 			"claimedBy": ""
+		},
+		{
+			"id": 5,
+			"name": "Potion of Enlarge Person",
+			"category": "potion",
+			"bookValue": 1750,
+			"claimed": true,
+			"claimedBy": "Nick"
 		}
 	]
 }
