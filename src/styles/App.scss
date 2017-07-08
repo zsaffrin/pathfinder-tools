@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:700|PT+Serif:400,700');
+
+:root {
+	font-size: 14px;
+}
 
 :root,
 h1,
@@ -17,6 +21,27 @@ h6,
 	font-weight: 400;
 }
 
+h1,
+.h1 {
+	font-size: 2.2rem; // 32px
+}
+
+h2,
+.h2 {
+	font-size: 1.8rem; // 26px
+}
+
+h3,
+.h3 {
+	font-size: 1.4rem; // 20px
+}
+
+
 .bold {
+	font-weight: 700;
+}
+
+.heading {
+	font-family: 'Lato', sans-serif;
 	font-weight: 700;
 }
