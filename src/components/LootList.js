@@ -80,6 +80,17 @@ class LootList extends Component {
 		return contents;
 	}
 
+	static totalBookValue(items) {
+		let total = 0;
+		items.map(({ claimed, bookValue }) => {
+			if (!claimed) {
+				total += bookValue;
+			}
+			return true;
+		});
+		return total;
+	}
+
 	constructor() {
 		super();
 		this.state = {
@@ -100,16 +111,21 @@ class LootList extends Component {
 	}
 
 	render() {
-		const { loot } = this.state;
+		const { items, categories } = this.state.loot;
+		const totalSalePrice = Math.floor(LootList.totalBookValue(items) / 2);
 
 		return (
 			<div>
 				<h2>Loot List</h2>
-				{loot.items.length} items loaded
+
+				<div className="my2 p1">
+					<div className="h3">Total Sale Price: {totalSalePrice}</div>
+					<div className="h4 ml1">/ 8 portions = {Math.floor(totalSalePrice / 8)} cut</div>
+				</div>
 
 				<div className="flex flex-wrap">
-					{loot.categories.map(({ id, name }) => {
-						const categoryItems = LootList.filterItemsByCategory(loot.items, id);
+					{categories.map(({ id, name }) => {
+						const categoryItems = LootList.filterItemsByCategory(items, id);
 
 						if (categoryItems.length > 0) {
 							return (
