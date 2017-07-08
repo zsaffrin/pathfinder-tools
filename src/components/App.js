@@ -22,7 +22,7 @@ const App = () => {
 
 	return (
 		<Router>
-			<div id="app">
+			<div>
 				<div className="p1 bg-red-darker white">
 					<h1 className="m0">Pathfinder Tools</h1>
 				</div>
@@ -34,7 +34,7 @@ const App = () => {
 							<SidebarItem icon={icon} title={name} url={url} key={id} />
 						))}
 					</div>
-					<div className="p2 flex-grow">
+					<div className="p2 flex-auto">
 						<Route
 							exact
 							path="/"
