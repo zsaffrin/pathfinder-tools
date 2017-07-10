@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import 'whatwg-fetch';
 
 const LootItemEntry = ({ name, category, bookValue, claimed, claimedBy }) => {
+	const formatPrice = num => num.toLocaleString('en-US');
+
 	let salePrice;
 	if (!claimed) {
 		if (category === 9) {
@@ -25,14 +27,14 @@ const LootItemEntry = ({ name, category, bookValue, claimed, claimedBy }) => {
 				className={`${claimed ? 'gray-light italic' : ''}`}
 				style={{ width: '7rem' }}
 			>
-				{bookValue}
+				{formatPrice(bookValue)}
 			</div>
 
 			<div
 				className={`${claimed ? 'gray-light italic' : ''}`}
 				style={{ width: '7rem' }}
 			>
-				{salePrice}
+				{!claimed ? formatPrice(salePrice) : ''}
 			</div>
 
 			<div
@@ -98,6 +100,7 @@ class LootList extends Component {
 				items: [],
 				categories: [],
 			},
+			playerShares: 8,
 		};
 	}
 
@@ -113,14 +116,17 @@ class LootList extends Component {
 	render() {
 		const { items, categories } = this.state.loot;
 		const totalSalePrice = Math.floor(LootList.totalBookValue(items) / 2);
+		const playerShare = Math.floor(totalSalePrice / this.state.playerShares);
+
+		const formatPrice = num => num.toLocaleString('en-US');
 
 		return (
 			<div>
 				<h2>Loot List</h2>
 
 				<div className="my2 p1">
-					<div className="h3">Total Sale Price: {totalSalePrice}</div>
-					<div className="h4 ml1">/ 8 portions = {Math.floor(totalSalePrice / 8)} cut</div>
+					<div className="h3">Total Sale Price: {formatPrice(totalSalePrice)}</div>
+					<div className="h4 ml1">/ 8 portions = {formatPrice(playerShare)} cut</div>
 				</div>
 
 				<div className="flex flex-wrap">
