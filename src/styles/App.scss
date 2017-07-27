@@ -1,44 +1,14 @@
+// TODO: Replace with local font-face
 @import url('https://fonts.googleapis.com/css?family=Lato:700|PT+Serif:400,700');
 
 :root {
+	font-family: 'PT Serif', serif;
 	font-size: 14px;
 }
 
-:root,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-	font-family: 'PT Serif', serif;
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
 	font-weight: 400;
-}
-
-h1,
-.h1 {
-	font-size: 2.2rem; // 32px
-}
-
-h2,
-.h2 {
-	font-size: 1.8rem; // 26px
-}
-
-h3,
-.h3 {
-	font-size: 1.4rem; // 20px
-}
-
-
-.bold {
-	font-weight: 700;
 }
 
 .heading {

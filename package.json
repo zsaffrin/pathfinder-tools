@@ -1,6 +1,6 @@
 {
   "name": "pathfinder-tools",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tools for your Pathfinder needs",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --config webpack.production.config.js",
