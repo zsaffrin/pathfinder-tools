@@ -39,6 +39,10 @@ const config = {
 			},
 		],
 	},
+	externals: {
+		'react/lib/ExecutionEnvironment': true,
+		'react/lib/ReactContext': true,
+	},
 	plugins: [
 		new Webpack.optimize.OccurrenceOrderPlugin(),
 		new Webpack.HotModuleReplacementPlugin(),

@@ -4,7 +4,9 @@
   "description": "Tools for your Pathfinder needs",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --config webpack.production.config.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest --verbose",
+    "test:watch": "jest --watch --verbose"
   },
   "repository": {
     "type": "git",
@@ -17,15 +19,18 @@
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "enzyme": "^2.9.1",
     "express": "^4.15.3",
     "font-awesome": "^4.7.0",
     "http-proxy": "^1.16.2",
-    "overeasy": "^5.3.0",
+    "jest": "^20.0.4",
+    "overeasy": "^5.3.1",
     "promise-polyfill": "^6.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
+    "react-test-renderer": "^15.6.1",
     "webpack": "^3.4.1",
     "webpack-dev-server": "^2.6.1"
   },
@@ -47,5 +52,16 @@
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/test/mocks/styleMock.js"
+    }
   }
 }
