@@ -1,16 +1,42 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-require('overeasy/dist/overeasy.min.css');
-require('font-awesome/css/font-awesome.min.css');
-require('../styles/App.scss');
+import 'overeasy/dist/overeasy.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import '../styles/App.scss';
 
-const App = () => (
-	<Router>
-		<div id="app">
-			Pathfinder Tools
-		</div>
-	</Router>
-);
+import Header from './Header';
+import MainContent from './MainContent';
+import Home from './Home';
+import Footer from './Footer';
+
+const defaultState = require('../config/defaultState.json');
+
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = defaultState || {
+			appTitle: '',
+		};
+	}
+
+	render() {
+		const { appTitle } = this.state;
+
+		return (
+			<Router>
+				<div id="app">
+					<Header appTitle={appTitle} />
+
+					<MainContent>
+						<Home />
+					</MainContent>
+
+					<Footer />
+				</div>
+			</Router>
+		);
+	}
+}
 
 export default App;
