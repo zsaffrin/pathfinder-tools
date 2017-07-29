@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import 'overeasy/dist/overeasy.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -8,6 +8,7 @@ import '../styles/App.scss';
 import Header from './Header';
 import MainContent from './MainContent';
 import Home from './Home';
+import Character from './Character';
 import Footer from './Footer';
 
 const defaultState = require('../config/defaultState.json');
@@ -29,7 +30,8 @@ class App extends Component {
 					<Header appTitle={appTitle} />
 
 					<MainContent>
-						<Home />
+						<Route exact path="/" component={Home} />
+						<Route path="/character" component={Character} />
 					</MainContent>
 
 					<Footer />
