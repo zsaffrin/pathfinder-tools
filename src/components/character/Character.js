@@ -6,8 +6,7 @@ import Attributes from './Attributes';
 import Abilities from './Abilities';
 
 const Character = ({ character }) => {
-	const { name, baseAbilityScores, abilityMods, levels, hd,
-		alignment, race, height, hair, eyes, weight, size } = character;
+	const { attributes, abilities, abilityMods, levels, alignment, size, languages } = character;
 
 	return (
 		<div id="character">
@@ -16,16 +15,11 @@ const Character = ({ character }) => {
 			<div className="flex">
 				<Card>
 					<Attributes
-						name={name}
+						attributes={attributes}
 						levels={levels}
-						hd={hd}
 						alignment={alignment}
-						race={race}
-						height={height}
-						hair={hair}
-						eyes={eyes}
-						weight={weight}
 						size={size}
+						languages={languages}
 					/>
 				</Card>
 			</div>
@@ -33,7 +27,7 @@ const Character = ({ character }) => {
 			<div className="flex">
 				<Card>
 					<Abilities
-						scores={baseAbilityScores}
+						scores={abilities}
 						mods={abilityMods}
 					/>
 				</Card>
