@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { showPlus } from '../_staticFunctions';
+import { showPlus, calcAbilityMod } from '../_staticFunctions';
 
-const Abilities = ({ scores, mods }) => (
+const Abilities = ({ scores }) => (
 	<div id="abilities">
 		<div className="h3">Abilities</div>
 		<table>
@@ -13,7 +13,7 @@ const Abilities = ({ scores, mods }) => (
 						<th className="p-thin strong-label caps left">{key}</th>
 						<td className="p-thin center">{scores[key]}</td>
 						<td className="p-thin center">
-							({showPlus(mods[key])})
+							({showPlus(calcAbilityMod(scores[key]))})
 						</td>
 					</tr>
 				))}
@@ -23,11 +23,9 @@ const Abilities = ({ scores, mods }) => (
 );
 Abilities.propTypes = {
 	scores: PropTypes.shape({}),
-	mods: PropTypes.shape({}),
 };
 Abilities.defaultProps = {
 	scores: {},
-	mods: {},
 };
 
 export default Abilities;
