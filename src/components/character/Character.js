@@ -6,7 +6,8 @@ import Attributes from './Attributes';
 import Abilities from './Abilities';
 
 const Character = ({ character }) => {
-	const { attributes, abilities, abilityMods, levels, alignment, size, languages } = character;
+	const { attributes, abilities, abilityMods, levels, alignment, size,
+		languages } = character;
 
 	return (
 		<div id="character">
