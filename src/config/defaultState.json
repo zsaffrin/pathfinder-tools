@@ -2,8 +2,16 @@
 	"appTitle": "Pathfinder Tools",
 	"character": {
 		"id": 1,
-		"name": "Cale \"Two-Blade\" Manton",
-		"baseAbilityScores": {
+		"attributes": {
+			"name": "Cale \"Two-Blade\" Manton",
+			"hd": 10,
+			"race": "human",
+			"height": 79,
+			"hair": "brown",
+			"eyes": "blue",
+			"weight": 240
+		},
+		"abilities": {
 			"str": 20,
 			"dex": 22,
 			"con": 16,
@@ -24,19 +32,17 @@
 			"rogue": 4,
 			"fighter": 1
 		},
-		"hd": 10,
 		"alignment": {
-			"moral": "Good",
-			"lawful": "Chaotic"
+			"moral": "good",
+			"lawful": "chaotic"
 		},
-		"race": "human",
-		"height": 79,
-		"hair": "brown",
-		"eyes": "blue",
-		"weight": 240,
 		"size": {
 			"category": "medium",
 			"mod": 0
-		}
+		},
+		"languages": [
+			"common",
+			"orc"
+		]
 	}
 }
