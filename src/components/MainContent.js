@@ -7,13 +7,17 @@ const style = {
 
 const MainContent = ({ children }) => (
 	<div id="main-content" style={style}>
-		<div className="container">
+		<div className="container p1">
 			{children}
 		</div>
 	</div>
 );
 MainContent.propTypes = {
-	children: PropTypes.node,
+	children: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.node,
+		PropTypes.arrayOf(PropTypes.node),
+	]),
 };
 MainContent.defaultProps = {
 	children: null,
