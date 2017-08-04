@@ -19,14 +19,6 @@
 			"wis": 15,
 			"cha": 12
 		},
-		"abilityMods": {
-			"str": 5,
-			"dex": 6,
-			"con": 3,
-			"int": 1,
-			"wis": 2,
-			"cha": 1
-		},
 		"levels": {
 			"barbarian": 5,
 			"rogue": 4,
