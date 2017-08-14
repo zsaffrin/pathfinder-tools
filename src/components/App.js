@@ -7,28 +7,85 @@ import '../styles/App.scss';
 
 import Header from './Header';
 import MainContent from './MainContent';
-import Home from './Home';
-import Character from './character/Character';
+import Character from '../models/Character';
+import Game from '../models/Game';
+import CharacterSheet from './characterSheet/CharacterSheet';
 import Footer from './Footer';
 
-const defaultState = require('../config/defaultState.json');
+// TODO: Store data elsewhere
+const tempCharacterData = {
+	abilities: {
+		str: 20,
+		dex: 22,
+		con: 16,
+		int: 13,
+		wis: 15,
+		cha: 12,
+	},
+	age: 30,
+	alignment: {
+		morality: 'good',
+		lawfulness: 'chaotic',
+	},
+	characterName: 'Cale "Two-Blade" Manton',
+	eyeColor: 'blue',
+	hairColor: 'brown',
+	height: 67,
+	languages: [
+		'common',
+		'orc',
+	],
+	race: 'human',
+	size: 'medium',
+	skinColor: 'tan',
+	weight: 240,
+};
+const tempGameData = {
+	carryingCapacityByStrength: {
+		1: {
+			lightLoad: {
+				max: 3,
+			},
+			mediumLoad: {
+				min: 4,
+				max: 6,
+			},
+			heavyLoad: {
+				min: 7,
+				max: 10,
+			},
+		},
+		20: {
+			lightLoad: {
+				max: 133,
+			},
+			mediumLoad: {
+				min: 134,
+				max: 266,
+			},
+			heavyLoad: {
+				min: 267,
+				max: 400,
+			},
+		},
+	},
+	baseLandSpeedByRace: {
+		human: 30,
+	},
+};
 
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = defaultState || {
-			appTitle: '',
+		this.state = {
+			appTitle: 'Pathfinder Tools',
+			character: new Character(tempCharacterData),
+			gameData: new Game(tempGameData),
 		};
 	}
 
-	updateCharacterData(newData) {
-		const { characterData } = this.state;
-		const updatedData = Object.assign(characterData, newData);
-		this.setState({ character: updatedData });
-	}
-
 	render() {
-		const { appTitle } = this.state;
+		const { appTitle, character, gameData } = this.state;
 
 		return (
 			<Router>
@@ -36,13 +93,13 @@ class App extends Component {
 					<Header appTitle={appTitle} />
 
 					<MainContent>
-						<Route exact path="/" component={Home} />
 						<Route
-							path="/character"
-							render={() => (
-								<Character
-									character={defaultState.character}
-									updateCharacter={this.updateCharacterData}
+							path="/"
+							render={props => (
+								<CharacterSheet
+									character={character}
+									gameData={gameData}
+									{...props}
 								/>
 							)}
 						/>
