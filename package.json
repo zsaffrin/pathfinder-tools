@@ -18,9 +18,11 @@
     "url": "https://github.com/zsaffrin/pathfinder-tools/issues"
   },
   "dependencies": {
+    "ajv": "^5.2.2",
     "body-parser": "^1.17.2",
     "enzyme": "^2.9.1",
     "express": "^4.15.3",
+    "firebase": "^4.2.0",
     "font-awesome": "^4.7.0",
     "http-proxy": "^1.16.2",
     "jest": "^20.0.4",
