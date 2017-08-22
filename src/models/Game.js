@@ -27,10 +27,40 @@ class Game {
 
 
 	// MOVEMENT SPEED ------------------------------------------------------------
-	baseLandSpeed = race => (
-		this.data && this.data.baseLandSpeedByRace ?
-			this.data.baseLandSpeedByRace[race] : null
+	baseLandSpeedByRace = (race) => {
+		if (!this.data || !this.data.baseLandSpeedByRace) { return null; }
+		return this.data.baseLandSpeedByRace[race];
+	}
+
+	swimSpeed = movementSpeed => (
+		Math.floor(movementSpeed / 4)
 	)
+
+	climbSpeed = movementSpeed => (
+		Math.floor(movementSpeed / 4)
+	)
+
+
+	// CLASS LEVELS --------------------------------------------------------------
+	classEffectsByLevel = (charClass, level, filter = null) => {
+		if (
+			!this.data ||
+			!this.data.effectsByClassByLevel ||
+			!this.data.effectsByClassByLevel[charClass] ||
+			!this.data.effectsByClassByLevel[charClass][level]
+		) { return null; }
+
+		const levelEffects = this.data.effectsByClassByLevel[charClass][level];
+
+		if (!filter) { return levelEffects; }
+		const filteredEffects = [];
+		levelEffects.forEach((effect) => {
+			if (effect.affects === filter) {
+				filteredEffects.push(effect);
+			}
+		});
+		return filteredEffects;
+	}
 }
 
 export default Game;
