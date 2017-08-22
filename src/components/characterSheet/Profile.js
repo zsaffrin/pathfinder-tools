@@ -3,38 +3,52 @@ import PropTypes from 'prop-types';
 
 import { showPlus } from '../_staticFunctions';
 
-const Profile = ({ character }) => (
-	<div id="profile">
-		<h2 className="mb1">{character.characterName()}</h2>
-		<div className="px1 cap">
-			{character.alignment()} {character.race()}, age {character.age()}
-		</div>
-		<div className="flex">
-			<div className="px1">
-				<span className="cap">{character.size()}</span>
-				&nbsp;size
-				(<span className="bold">{showPlus(character.sizeMod())}</span>)
+const Profile = ({ character }) => {
+	const classLevelSummary = character.classLevelSummary();
+
+	return (
+		<div id="profile">
+			<h2 className="mb1">{character.characterName()}</h2>
+			<div className="flex">
+				<div className="px1 bold">
+					HD {character.hd()}
+				</div>
+				{Object.keys(classLevelSummary).map(charClass => (
+					<div className="px1 cap">
+						{charClass} {classLevelSummary[charClass]}
+					</div>
+				))}
 			</div>
-			<div className="px1">{character.height()}&quot; tall</div>
-			<div className="px1">{character.weight()} lbs</div>
-		</div>
-		<div className="flex">
-			<div className="px1">
-				<span className="cap">{character.eyeColor()}</span> eyes
+			<div className="px1 cap">
+				{character.alignment()} {character.race()}, age {character.age()}
+			</div>
+			<div className="flex">
+				<div className="px1">
+					<span className="cap">{character.size()}</span>
+					&nbsp;size
+					(<span className="bold">{showPlus(character.sizeMod())}</span>)
+				</div>
+				<div className="px1">{character.height()}&quot; tall</div>
+				<div className="px1">{character.weight()} lbs</div>
+			</div>
+			<div className="flex">
+				<div className="px1">
+					<span className="cap">{character.eyeColor()}</span> eyes
+				</div>
+				<div className="px1">
+					<span className="cap">{character.hairColor()}</span> hair
+				</div>
+				<div className="px1">
+					<span className="cap">{character.skinColor()}</span> skin
+				</div>
 			</div>
 			<div className="px1">
-				<span className="cap">{character.hairColor()}</span> hair
-			</div>
-			<div className="px1">
-				<span className="cap">{character.skinColor()}</span> skin
+				Speaks&nbsp;
+				<span className="cap">{character.languages().join(', ')}</span>
 			</div>
 		</div>
-		<div className="px1">
-			Speaks&nbsp;
-			<span className="cap">{character.languages().join(', ')}</span>
-		</div>
-	</div>
-);
+	);
+};
 Profile.propTypes = {
 	character: PropTypes.shape({}),
 };

@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Strength = ({ character, gameData }) => {
-	const {
-		lightLoad,
-		mediumLoad,
-		heavyLoad,
-	} = gameData.carryingCapacity(character.strength()) || {};
+const Strength = ({ carry, lift }) => {
+	const { lightLoad, mediumLoad, heavyLoad } = carry;
+	const { overhead, offGround, pushOrDrag } = lift;
 
 	return (
 		<div id="strength">
@@ -58,7 +55,7 @@ const Strength = ({ character, gameData }) => {
 							<td className="border border-gray-lighter">
 								<div className="flex flex-baseline">
 									<div className="flex-auto px1 center">
-										{gameData.liftOverhead(character.strength())}
+										{overhead}
 									</div>
 									<div className="pr1 size-sm gray-dark">LB</div>
 								</div>
@@ -69,7 +66,7 @@ const Strength = ({ character, gameData }) => {
 							<td className="border border-gray-lighter">
 								<div className="flex flex-baseline">
 									<div className="flex-auto px1 center">
-										{gameData.liftOffGround(character.strength())}
+										{offGround}
 									</div>
 									<div className="pr1 size-sm gray-dark">LB</div>
 								</div>
@@ -80,7 +77,7 @@ const Strength = ({ character, gameData }) => {
 							<td className="border border-gray-lighter">
 								<div className="flex flex-baseline">
 									<div className="flex-auto px1 center">
-										{gameData.pushOrDrag(character.strength())}
+										{pushOrDrag}
 									</div>
 									<div className="pr1 size-sm gray-dark">LB</div>
 								</div>
@@ -94,12 +91,12 @@ const Strength = ({ character, gameData }) => {
 	);
 };
 Strength.propTypes = {
-	character: PropTypes.shape({}),
-	gameData: PropTypes.shape({}),
+	carry: PropTypes.shape({}),
+	lift: PropTypes.shape({}),
 };
 Strength.defaultProps = {
-	character: {},
-	gameData: {},
+	carry: {},
+	lift: {},
 };
 
 export default Strength;
