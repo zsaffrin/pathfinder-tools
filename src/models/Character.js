@@ -128,15 +128,26 @@ class Character {
 			this.data.levels.length : null
 	)
 
-	classLevels = () => {
+	classLevelSummary = () => {
 		if (!this.data || !this.data.levels) { return null; }
 
-		const levelCounts = {};
-		this.data.levels.forEach((level) => {
-			levelCounts[level.class] += 1;
-		});
+		const levels = this.levels();
+		const levelSummary = {};
+		for (let i = 0; i < levels.length; i += 1) {
+			levelSummary[levels[i].levelClass] ?
+				levelSummary[levels[i].levelClass] += 1 :
+				levelSummary[levels[i].levelClass] = 1;
+		}
 
-		return levelCounts;
+		return levelSummary;
+	}
+
+	classLevel = (classType) => {
+		if (!this.data || !this.data.levels) { return null; }
+		const summary = this.classLevelSummary();
+		return summary[classType] ?
+			summary[classType] :
+			0;
 	}
 
 
@@ -209,6 +220,14 @@ class Character {
 		this.data && this.data.abilities ?
 			this.calcAbilityMod(this.data.abilities.cha) : null
 	)
+
+
+	// EFFECTS -------------------------------------------------------------------
+	activeEffects = () => {
+		if (!this.data) { return null; }
+		const effects = [];
+		return effects;
+	}
 }
 
 export default Character;
