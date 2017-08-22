@@ -29,11 +29,30 @@ const tempCharacterData = {
 	},
 	characterName: 'Cale "Two-Blade" Manton',
 	eyeColor: 'blue',
+	favoredClass: 'barbarian',
 	hairColor: 'brown',
 	height: 67,
 	languages: [
 		'common',
 		'orc',
+	],
+	levels: [
+		{
+			characterLevel: 1,
+			levelClass: 'barbarian',
+		},
+		{
+			characterLevel: 2,
+			levelClass: 'rogue',
+		},
+		{
+			characterLevel: 3,
+			levelClass: 'barbarian',
+		},
+		{
+			characterLevel: 4,
+			levelClass: 'fighter',
+		},
 	],
 	race: 'human',
 	size: 'medium',
@@ -71,6 +90,26 @@ const tempGameData = {
 	},
 	baseLandSpeedByRace: {
 		human: 30,
+	},
+	effectsByClassByLevel: {
+		barbarian: {
+			1: [
+				{
+					affects: 'baseSpeed',
+					name: 'Fast Movement',
+					type: 'add',
+					value: 10,
+				},
+			],
+			2: [
+				{
+					affects: 'baseSpeed',
+					name: 'Fast Movement',
+					type: 'add',
+					value: 10,
+				},
+			],
+		},
 	},
 };
 
