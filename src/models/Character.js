@@ -63,31 +63,6 @@ class Character {
 			this.data.size : null
 	)
 
-	calcSizeMod = (size) => {
-		switch (size) {
-		case 'colossal':
-			return -8;
-		case 'gargantuan':
-			return -4;
-		case 'huge':
-			return -2;
-		case 'large':
-			return -1;
-		case 'medium':
-			return 0;
-		case 'small':
-			return 1;
-		case 'tiny':
-			return 2;
-		case 'diminutive':
-			return 4;
-		case 'fine':
-			return 8;
-		default:
-			return null;
-		}
-	}
-
 	sizeMod = () => (
 		this.data && this.data.size ?
 			this.calcSizeMod(this.data.size) : null

@@ -26,6 +26,33 @@ class Game {
 	)
 
 
+	// SIZE ----------------------------------------------------------------------
+	sizeMod = (size) => {
+		switch (size) {
+		case 'colossal':
+			return -8;
+		case 'gargantuan':
+			return -4;
+		case 'huge':
+			return -2;
+		case 'large':
+			return -1;
+		case 'medium':
+			return 0;
+		case 'small':
+			return 1;
+		case 'tiny':
+			return 2;
+		case 'diminutive':
+			return 4;
+		case 'fine':
+			return 8;
+		default:
+			return null;
+		}
+	}
+
+
 	// MOVEMENT SPEED ------------------------------------------------------------
 	baseLandSpeedByRace = (race) => {
 		if (!this.data || !this.data.baseLandSpeedByRace) { return null; }
