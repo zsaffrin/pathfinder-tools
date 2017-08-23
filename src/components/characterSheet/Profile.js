@@ -1,59 +1,96 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, number, shape, arrayOf } from 'prop-types';
 
 import { showPlus } from '../_staticFunctions';
 
-const Profile = ({ character }) => {
-	const classLevelSummary = character.classLevelSummary();
-
-	return (
-		<div id="profile">
-			<h2 className="mb1">{character.characterName()}</h2>
-			<div className="flex">
-				<div className="px1 bold">
-					HD {character.hd()}
-				</div>
-				{Object.keys(classLevelSummary).map(charClass => (
-					<div className="px1 cap">
-						{charClass} {classLevelSummary[charClass]}
-					</div>
-				))}
+const Profile = ({
+	name,
+	hd,
+	classLevelSummary,
+	alignment,
+	race,
+	age,
+	size,
+	sizeMod,
+	height,
+	weight,
+	eyes,
+	hair,
+	skin,
+	languages,
+}) => (
+	<div id="profile">
+		<h2 className="mb1">{name}</h2>
+		<div className="flex">
+			<div className="px1 bold">
+				HD {hd}
 			</div>
-			<div className="px1 cap">
-				{character.alignment()} {character.race()}, age {character.age()}
+			{Object.keys(classLevelSummary).map(charClass => (
+				<div className="px1 cap">
+					{charClass} {classLevelSummary[charClass]}
+				</div>
+			))}
+		</div>
+		<div className="px1 cap">
+			{alignment} {race}, age {age}
+		</div>
+		<div className="flex">
+			<div className="px1">
+				<span className="cap">{size}</span>
+				&nbsp;size
+				(<span className="bold">{showPlus(sizeMod)}</span>)
 			</div>
-			<div className="flex">
-				<div className="px1">
-					<span className="cap">{character.size()}</span>
-					&nbsp;size
-					(<span className="bold">{showPlus(character.sizeMod())}</span>)
-				</div>
-				<div className="px1">{character.height()}&quot; tall</div>
-				<div className="px1">{character.weight()} lbs</div>
-			</div>
-			<div className="flex">
-				<div className="px1">
-					<span className="cap">{character.eyeColor()}</span> eyes
-				</div>
-				<div className="px1">
-					<span className="cap">{character.hairColor()}</span> hair
-				</div>
-				<div className="px1">
-					<span className="cap">{character.skinColor()}</span> skin
-				</div>
+			<div className="px1">{height}&quot; tall</div>
+			<div className="px1">{weight} lbs</div>
+		</div>
+		<div className="flex">
+			<div className="px1">
+				<span className="cap">{eyes}</span> eyes
 			</div>
 			<div className="px1">
-				Speaks&nbsp;
-				<span className="cap">{character.languages().join(', ')}</span>
+				<span className="cap">{hair}</span> hair
+			</div>
+			<div className="px1">
+				<span className="cap">{skin}</span> skin
 			</div>
 		</div>
-	);
-};
+		<div className="px1">
+			Speaks&nbsp;
+			<span className="cap">{languages.join(', ')}</span>
+		</div>
+	</div>
+);
 Profile.propTypes = {
-	character: PropTypes.shape({}),
+	name: string,
+	hd: number,
+	classLevelSummary: shape({}),
+	alignment: shape({}),
+	race: string,
+	age: number,
+	size: string,
+	sizeMod: number,
+	height: number,
+	weight: number,
+	eyes: string,
+	hair: string,
+	skin: string,
+	languages: arrayOf(string),
 };
 Profile.defaultProps = {
-	character: {},
+	name: '',
+	hd: 0,
+	classLevelSummary: {},
+	alignment: {},
+	race: '',
+	age: 0,
+	size: '',
+	sizeMod: 0,
+	height: 0,
+	weight: 0,
+	eyes: '',
+	hair: '',
+	skin: '',
+	languages: [],
 };
 
 export default Profile;
