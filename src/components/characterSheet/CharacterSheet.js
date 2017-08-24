@@ -41,6 +41,7 @@ const CharacterSheet = ({ character, gameData }) => {
 
 	return (
 		<div id="character-sheet">
+
 			<Profile
 				name={character.characterName()}
 				hd={character.hd()}
@@ -58,15 +59,18 @@ const CharacterSheet = ({ character, gameData }) => {
 				languages={character.languages()}
 			/>
 
-			<Abilities abilityScores={abilityScoresEffects} />
+			<div className="flex flex-wrap flex-justify-between">
+				<Abilities abilityScores={abilityScoresEffects} />
 
-			<Strength carry={carry} lift={lift} />
+				<Strength carry={carry} lift={lift} />
 
-			<Movement
-				baseSpeed={baseSpeedEffects}
-				swimSpeed={gameData.swimSpeed(baseSpeedEffects.total)}
-				climbSpeed={gameData.climbSpeed(baseSpeedEffects.total)}
-			/>
+				<Movement
+					baseSpeed={baseSpeedEffects}
+					swimSpeed={gameData.swimSpeed(baseSpeedEffects.total)}
+					climbSpeed={gameData.climbSpeed(baseSpeedEffects.total)}
+				/>
+			</div>
+
 		</div>
 	);
 };
