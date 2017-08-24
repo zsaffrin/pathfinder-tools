@@ -10,8 +10,10 @@
     "indent": ["error", "tab"],
     "no-trailing-spaces": "off",
     "no-console": ["error", { allow: ["warn", "error", "info"] }],
+    "no-unused-expressions": ["error", { "allowTernary": true }],
     "react/jsx-indent": ["error", "tab"],
     "react/jsx-indent-props": ["error", "tab"],
     "react/jsx-filename-extension": "off",
   },
+  "parser": "babel-eslint",
 }

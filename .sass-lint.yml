@@ -14,7 +14,7 @@ rules:
   # Line Spacing
   one-declaration-per-line: 1
   empty-line-between-blocks: 1
-  single-line-per-selector: 1
+  single-line-per-selector: 0
 
   # Disallows
   no-attribute-selectors: 0
@@ -28,7 +28,7 @@ rules:
   no-duplicate-properties: 1
   no-empty-rulesets: 1
   no-extends: 0
-  no-ids: 1
+  no-ids: 0
   no-important: 1
   no-invalid-hex: 1
   no-mergeable-selectors: 1
