@@ -1,0 +1,11 @@
+
+$section-border: 1px solid #ccc;
+
+#character-sheet {
+	.section {
+		border: $section-border;
+		border-radius: 4px;
+		margin: .5rem;
+		padding: 1rem;
+	}
+}
