@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const style = {
-	height: '95vh',
+	minHeight: '95vh',
 };
 
 const MainContent = ({ children }) => (
