@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../../styles/CharacterSheet.scss';
 import Profile from './Profile';
 import Abilities from './Abilities';
 import Strength from './Strength';
@@ -59,7 +60,7 @@ const CharacterSheet = ({ character, gameData }) => {
 				languages={character.languages()}
 			/>
 
-			<div className="flex flex-wrap flex-justify-between">
+			<div className="sm-flex flex-wrap flex-start">
 				<Abilities abilityScores={abilityScoresEffects} />
 
 				<Strength carry={carry} lift={lift} />
