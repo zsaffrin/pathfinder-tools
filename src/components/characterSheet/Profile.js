@@ -19,8 +19,8 @@ const Profile = ({
 	skin,
 	languages,
 }) => (
-	<div id="profile">
-		<h2 className="mb1">{name}</h2>
+	<div id="profile" className="section">
+		<h2>{name}</h2>
 		<div className="flex">
 			<div className="px1 bold">
 				HD {hd}

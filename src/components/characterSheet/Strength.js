@@ -6,8 +6,8 @@ const Strength = ({ carry, lift }) => {
 	const { overhead, offGround, pushOrDrag } = lift;
 
 	return (
-		<div id="strength">
-			<h3 className="mb1">Strength</h3>
+		<div id="strength" className="section">
+			<h3>Strength</h3>
 			<div className="flex flex-wrap">
 				<div className="p1">
 					<div className="caps px2">Carry</div>

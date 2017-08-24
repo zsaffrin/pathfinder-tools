@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { showPlus } from '../_staticFunctions';
 
 const Abilities = ({ abilityScores }) => (
-	<div id="attributes">
-		<h3 className="mb1">Abilities</h3>
+	<div id="attributes" className="section">
+		<h3>Abilities</h3>
 		<table>
 			<tr>
 				<td />

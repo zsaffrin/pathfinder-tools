@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Movement = ({ baseSpeed, climbSpeed, swimSpeed }) => (
-	<div id="movement">
-		<h3 className="mb1">Movement</h3>
+	<div id="movement" className="section">
+		<h3>Movement</h3>
 		<table>
 			<tr>
 				<td className="border border-gray-lighter">
